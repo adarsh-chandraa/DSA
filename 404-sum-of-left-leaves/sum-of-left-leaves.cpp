@@ -16,7 +16,7 @@ public:
         if(root==NULL) return;
         if(root->left ==NULL && root->right==NULL && flag ==true){
         sum = sum +root->val;
-        return;
+       
         }
         solve(root->left,true);
         solve(root->right,false);
