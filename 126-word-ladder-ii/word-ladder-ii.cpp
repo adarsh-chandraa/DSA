@@ -95,6 +95,7 @@ public:
         q.push(beginWord);
         mp[beginWord] = 1;
         int sz = beginWord.size();
+        st.erase(beginWord);
         while (!q.empty()) {
             string temp = q.front();
             int steps = mp[temp];
@@ -106,7 +107,10 @@ public:
                     temp[i] = ch;
                     if (st.count(temp) > 0) {
                         q.push(temp);
-                        if(mp.find(temp)==mp.end())mp[temp] = steps + 1;
+                        cout<<temp<<"->"<<steps<<",";
+                        mp[temp] = steps + 1;
+                        cout<<temp<<"->"<<steps<<",";
+
                         st.erase(temp);
                     }
                 }
