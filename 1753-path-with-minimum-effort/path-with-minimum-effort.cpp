@@ -27,23 +27,28 @@ public:
                 int nr = r + dr[i];
                 int nc = c + dc[i];
                 if(nr>=0 && nr<n && nc>=0 && nc<m){
-                    int diff = abs(heights[r][c] - heights[nr][nc]);
-                    if(diff>= maxi ){
-                     if(diff < dist[nr][nc]){
-                        //cout<<diff<<" ";
-                        dist[nr][nc] = diff;
-                        pq.push({diff,{nr,nc}});
-                     }
-                      
-                    } 
-                    else {
-                         if(maxi<dist[nr][nc]){
-                        dist[nr][nc] = maxi;
-                        pq.push({maxi,{nr,nc}});
-                         }
+                    int neweffort = max(abs(heights[r][c] - heights[nr][nc]),maxi);
+                    if(neweffort <dist[nr][nc]){
+                        dist[nr][nc] = neweffort;
+                        pq.push({neweffort,{nr,nc}});
                     }
+            //         if(diff>= maxi ){
+            //          if(diff < dist[nr][nc]){
+            //             //cout<<diff<<" ";
+            //             dist[nr][nc] = diff;
+            //             pq.push({diff,{nr,nc}});
+            //          }
+                      
+            //         } 
+            //         else {
+            //              if(maxi<dist[nr][nc]){
+            //             dist[nr][nc] = maxi;
+            //             pq.push({maxi,{nr,nc}});
+            //              }
+            //         }
+            // }
                 }
-            }
+        }
         }
         return -1;
     }
