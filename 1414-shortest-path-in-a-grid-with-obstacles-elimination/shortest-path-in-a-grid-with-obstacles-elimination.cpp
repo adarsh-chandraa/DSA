@@ -29,7 +29,7 @@ public:
                 int nc = dc[i]+c;
                 if(nr>=0 &&nr<n && nc>=0 && nc<m){
                     if(cost>dist[nr][nc][rem])continue;
-                    else if(grid[nr][nc]==0 && cost + 1 <dist[nr][nc][rem]){
+                    if(grid[nr][nc]==0 && cost + 1 <dist[nr][nc][rem]){
                         dist[nr][nc][rem] = cost+1;
                         q.push({{cost+1,rem},{nr,nc}});
                     }
