@@ -11,20 +11,26 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode*prev = head;
+        ListNode*prev = NULL;
         ListNode*curr = head;
-        //ListNode*fast = head;
+        ListNode*fast = head;
         int cnt = 1;
         vector<int>ans;
-        while(curr->next!=NULL){
-            if((curr->val > prev->val && curr->val > curr->next->val) ||
-               (curr->val < prev->val && curr->val < curr->next->val)) {
+        while(fast->next){
+            fast = curr->next;
+            if(prev ==NULL){
+                prev = curr;
+                curr = fast;
+                continue;
+            }
+            else if((curr->val > prev->val && curr->val > fast->val) ||
+               (curr->val < prev->val && curr->val < fast->val)) {
 
                 ans.push_back(cnt);
             }
             prev = curr;
-            curr = curr ->next;
-           cnt++;
+            curr = fast;
+            cnt++;
              
         }
         if(ans.size()<2) return {-1,-1};
