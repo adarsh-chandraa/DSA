@@ -1,11 +1,11 @@
 // // class Solution {
 // // public:
 // //    const int MOD = 1e9+7;
-// //    int solve(int idx,int n){
+// //    long long solve(int idx,int n){
 // //     if(idx==n){
 // //         return 1;
 // //     }
-// //     int res = 0;
+// //     long long  res = 0;
 // //     if(idx%2==0){
 // //         for(int i :{0,2,4,6,8}){
 // //            res = (res+solve(idx+1,n))%MOD;
@@ -19,7 +19,7 @@
 // //     return res;
 // //    }
 // //     int countGoodNumbers(long long n) {
-// //         return solve(0,n);
+// //         return (int)solve(0,n);
 
 // //     }
 // // };
