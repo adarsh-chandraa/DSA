@@ -12,8 +12,14 @@ public:
     }
   }
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>>ans;
-        solve(nums,ans,0);
-        return ans;
+          vector<vector<int>>ans;
+        // solve(nums,ans,0);
+        // return ans;
+       sort(nums.begin(),nums.end());
+       do{
+        ans.push_back(nums);
+       }
+       while(next_permutation(nums.begin(),nums.end()));
+       return ans;
    }
 };
