@@ -5,11 +5,11 @@ public:
         vector<int> ans;
         for (char& c : seq)
             if (c == '(') {
-                ++d;
+                d++;
                 ans.push_back(d % 2);
             } else {
                 ans.push_back(d % 2);
-                --d;
+                d--;
             }
         return ans;
     }
