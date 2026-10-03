@@ -39,7 +39,7 @@ public:
                         q.push({{cost+1,rem-1},{nr,nc}});
                        }
                     }
-                }
+                } 
             }
         }
         return -1;
