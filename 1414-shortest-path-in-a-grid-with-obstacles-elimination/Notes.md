@@ -1,1 +1,1 @@
-<h2>shortest-path-in-a-grid-with-obstacles-elimination Notes</h2><hr>[ Time taken: 15d 22hrs 36m 34s ]
+<h2>shortest-path-in-a-grid-with-obstacles-elimination Notes</h2><hr>[ Time taken: 16d 19hrs 31m 42s ]
