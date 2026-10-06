@@ -1,3 +1,5 @@
+//iss question ki khas baat ye hai ki dirction change aur turns toh isme agar hum agar normal distance[r][c] se krenge toh problem ye ho jaegi ki turn aur dirction ko kho denge jabki sbse important whi hai toh hum isko normal dijkstra nhi bolkar modified one bol skte hai
+
 class Solution {
 public:
     int minCost(vector<vector<int>>& grid, int k) {
@@ -8,15 +10,9 @@ public:
         int dc[4] = {0, 0, -1, 1};
 
         const int INF = 1e9;
-
-        vector<vector<vector<vector<int>>>> dist(
-            n,
-            vector<vector<vector<int>>>(
-                m,
-                vector<vector<int>>(4, vector<int>(k + 1, INF))
-            )
-        );
-
+        // dist[r][c][dir][turns]
+        vector<vector<vector<vector<int>>>> dist(n,vector<vector<vector<int>>>(m,vector<vector<int>>(4, vector<int>(k + 1, INF))));
+         
         priority_queue<
             tuple<int,int,int,int,int>,
             vector<tuple<int,int,int,int,int>>,
@@ -24,7 +20,7 @@ public:
         > pq;
 
         // cost, row, col, direction, turns
-        pq.push({grid[0][0], 0, 0, 4, 0});
+        pq.push({grid[0][0], 0, 0, -1, 0});
 
         while(!pq.empty()) {
 
@@ -38,24 +34,13 @@ public:
 
                 int nr = r + dr[d];
                 int nc = c + dc[d];
-
-                if(nr < 0 || nr >= n || nc < 0 || nc >= m)
-                    continue;
-
+                if(nr < 0 || nr >= n || nc < 0 || nc >= m)continue;
                 int nt = turns;
-
-                if(dir != 4 && dir != d)
-                    nt++;
-
-                if(nt > k)
-                    continue;
-
+                if(dir != -1 && dir != d) nt++;
+                if(nt > k)continue;
                 int newCost = cost + grid[nr][nc];
-
                 if(newCost < dist[nr][nc][d][nt]) {
-
                     dist[nr][nc][d][nt] = newCost;
-
                     pq.push({newCost,nr,nc,d,nt });
                 }
             }
