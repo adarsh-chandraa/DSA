@@ -2,8 +2,8 @@ class DisjointSet{
     public:
     vector<int>par,rank,size;
     DisjointSet(int n){
-        rank.resize(n+1);
-        size.resize(n+1,0);
+        rank.resize(n+1,0);
+        size.resize(n+1,1);
         par.resize(n+1);
         for(int i = 0;i<=n;i++) par[i] = i;
     }
