@@ -25,18 +25,14 @@ public:
             }
         }
     }
-
     int minCost(vector<vector<int>>& grid) {
         int n = grid.size();
         int m = grid[0].size();
-
         int mx = 0;
         for (auto &v : grid) {
             for (int x : v) mx |= x;
-        }
-       
+        }      
         vector<vector<vector<int>>> vis(n, vector<vector<int>>(m, vector<int>(mx + 1, -1)));
-
         dfs(grid, 0, 0, n, m, grid[0][0],vis);
 
         return ans;
