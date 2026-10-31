@@ -33,8 +33,8 @@ public:
         memset(dp,-1,sizeof(dp));
 
         int ans = 0;
-
-        ans = (ans + solve(grid,n,m,0,1,0)) % mod;
+        
+        ans = solve(grid,n,m,0,1,0) % mod;
         ans = (ans + solve(grid,n,m,1,0,1)) % mod;
 
         return ans;
