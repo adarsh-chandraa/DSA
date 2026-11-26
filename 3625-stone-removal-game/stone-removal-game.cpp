@@ -1,12 +1,13 @@
 class Solution {
 public:
     bool canAliceWin(int n) {
-        int take = 10, k = 0;
-        while (n >= take) {
-            n -= take;
-            take--;
+        int val = 10;
+        int k = 0;
+        while(n>=val){
+            n = n- val;
+            val--;
             k++;
         }
-        return k % 2 == 1;
+        return k%2==1;
     }
 };
